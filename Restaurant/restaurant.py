@@ -8,8 +8,14 @@ def menu_count_setup(restaurant,menu):
         menu[restaurant[i][0]] = 0
     return
 
+def menu_count_setup2(restaurant_range):
+    for i in range(restaurant_range):
+        print(i)
+    return
+
 def choice_restaurant_func(restaurant_range):
     choice_restaurant=random.sample(restaurant_range,1)[0]
+    choice_restaurant+="_restaurant"
     restaurants_count[choice_restaurant] +=1
     return choice_restaurant
 
@@ -36,6 +42,9 @@ F_restaurant=(("순대국밥",6200),("소머리국밥",7400),("돼지국밥",650
 # 식당 이용 횟수(restaurants dict) 6개 생성, 값은 0으로 초기화.
 restaurants_count={"A_restaurant":0, "B_restaurant":0, "C_restaurant":0, "D_restaurant":0, "E_restaurant":0, "F_restaurant":0 }
 
+# A~F까지의 식당을 랜덤으로 선택하기 위한 범위 지정.
+restaurant_range=['A','B','C','D','E','F']
+
 # 메뉴 선택 횟수(menu_count dict) 6개 생성, 각 메뉴별 선택 횟수는 0으로 초기화.
 A_menu_count={}
 menu_count_setup(A_restaurant,A_menu_count)
@@ -50,11 +59,10 @@ menu_count_setup(E_restaurant,E_menu_count)
 F_menu_count={}
 menu_count_setup(F_restaurant,F_menu_count)
 
+menu_count_setup2(restaurant_range)
+
 # 테이블 사용 횟수(tables List) 30개 생성, 값은 0으로 초기화.
 tables_count=[0 for i in range(30)]
-
-# A~F까지의 식당을 랜덤으로 선택하기 위한 범위 지정.
-restaurant_range=['A_restaurant','B_restaurant','C_restaurant','D_restaurant','E_restaurant','F_restaurant']
 
 
 people_count=random.randrange(50,501)
@@ -67,11 +75,9 @@ for i in range(people_count):
     choice_restaurant=choice_restaurant_func(restaurant_range)
     print("선택한 식당: %s" % choice_restaurant)
 
-
     # 메뉴 정하기
     choice_menu=choice_menu_func(choice_restaurant)
     print("선택한 메뉴: %s" % choice_menu)
-
 
     # 테이블 정하기
     choice_table=choice_table_func(30)
