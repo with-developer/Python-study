@@ -8,13 +8,8 @@ def menu_count_setup(restaurant,menu):
         menu[restaurant[i][0]] = 0
     return
 
-def menu_count_setup2(restaurant_range):
-    for i in range(restaurant_range):
-        print(i)
-    return
-
-def choice_restaurant_func(restaurant_range):
-    choice_restaurant=random.sample(restaurant_range,1)[0]
+def choice_restaurant_func(restaurants_range):
+    choice_restaurant=random.sample(restaurants_range,1)[0]
     choice_restaurant+="_restaurant"
     restaurants_count[choice_restaurant] +=1
     return choice_restaurant
@@ -43,23 +38,15 @@ F_restaurant=(("순대국밥",6200),("소머리국밥",7400),("돼지국밥",650
 restaurants_count={"A_restaurant":0, "B_restaurant":0, "C_restaurant":0, "D_restaurant":0, "E_restaurant":0, "F_restaurant":0 }
 
 # A~F까지의 식당을 랜덤으로 선택하기 위한 범위 지정.
-restaurant_range=['A','B','C','D','E','F']
+restaurants_range=['A','B','C','D','E','F']
 
 # 메뉴 선택 횟수(menu_count dict) 6개 생성, 각 메뉴별 선택 횟수는 0으로 초기화.
-A_menu_count={}
-menu_count_setup(A_restaurant,A_menu_count)
-B_menu_count={}
-menu_count_setup(B_restaurant,B_menu_count)
-C_menu_count={}
-menu_count_setup(C_restaurant,C_menu_count)
-D_menu_count={}
-menu_count_setup(D_restaurant,D_menu_count)
-E_menu_count={}
-menu_count_setup(E_restaurant,E_menu_count)
-F_menu_count={}
-menu_count_setup(F_restaurant,F_menu_count)
+A_menu_count={}; B_menu_count={}; C_menu_count={}; D_menu_count={}; E_menu_count={}; F_menu_count={}
+for i in (restaurants_range):
+    restaurant=i+"_restaurant"
+    menu_count=i+"_menu_count"
+    menu_count_setup(eval(restaurant),eval(menu_count))
 
-menu_count_setup2(restaurant_range)
 
 # 테이블 사용 횟수(tables List) 30개 생성, 값은 0으로 초기화.
 tables_count=[0 for i in range(30)]
@@ -72,7 +59,7 @@ for i in range(people_count):
     print("%d 번째 손님이 입장했습니다." %(i+1))
 
     # 식당 정하기
-    choice_restaurant=choice_restaurant_func(restaurant_range)
+    choice_restaurant=choice_restaurant_func(restaurants_range)
     print("선택한 식당: %s" % choice_restaurant)
 
     # 메뉴 정하기
@@ -84,6 +71,7 @@ for i in range(people_count):
     print("선택한 테이블 %d" % choice_table)
 
     print()
+
 
 
 print("식당별 주문 횟수 %s" % restaurants_count)
