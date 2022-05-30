@@ -1,4 +1,7 @@
 import random
+import openpyxl
+
+wb = openpyxl.Workbook()
 
 ## 함수 선언
 # A~F 식당의 메뉴별 count dict를 생성하는 함수
