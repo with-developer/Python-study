@@ -16,6 +16,9 @@ tables_range=30
 
 # 방문객 최솟값, 최댓값 지정
 people_range_min=50; people_range_max=500;
+
+#menu.txt 파일 절대 경로값 지정
+path="/Users/junja/Desktop/python/Restaurant/menu.txt"
 ## 상수값 지정 종료
 
 
@@ -52,6 +55,16 @@ def choice_table_func(table_range):
     choice_table=random.randrange(table_range)
     tables_count[choice_table]+=1
     return choice_table
+
+# 식당별 수익을 도출하는 함수
+def restaurants_revenue_func(restaurants_range):
+    for name in restaurants_range:
+        restaurant=name[0:1]+"_restaurant"
+        menu_count=name[0:1]+"_menu_count"
+        for i in range(len(eval(menu_count))):
+            menu=name+"_menu_"+str(i+1)
+            restaurants_revenue[restaurant] += eval(menu_count)[menu]*eval(restaurant)[i][1]
+    return
 ## 함수 선언 종료
 
 
@@ -60,7 +73,7 @@ def choice_table_func(table_range):
 restaurants_range=['A','B','C','D','E','F']
 
 # A~F까지 6개의 식당 메뉴를 튜플로 초기화
-open_file = open("/Users/junja/Desktop/python/Restaurant2/menu.txt", "w")	
+open_file = open(path, "w")	
 A_restaurant=make_menu("A")
 B_restaurant=make_menu("B")
 C_restaurant=make_menu("C")
@@ -81,4 +94,8 @@ for i in (restaurants_range):
 
 # 테이블 사용 횟수(tables List) 30개 생성, 값은 0으로 초기화.
 tables_count=[0 for i in range(tables_range)]
+
+# 매출액 계산
+restaurants_revenue={"A_restaurant":0, "B_restaurant":0, "C_restaurant":0, "D_restaurant":0, "E_restaurant":0, "F_restaurant":0 }
+
 ## 전역변수 초기화 종료
