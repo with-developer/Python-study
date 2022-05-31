@@ -1,7 +1,33 @@
 import random
 
+
+## 상수값 지정
+# 한 달은 30일로 지정
+month=30
+
+# 식당의 메뉴 갯수 최솟값, 최댓값 지정
+menu_count_range_min=4; menu_count_range_max=10
+
+# 메뉴 가격의 최솟값, 최댓값 지정
+menu_price_range_min=1000; menu_price_range_max=9999
+
+# 테이블 갯수를 지정
+tables_range=30
+
+# 방문객 최솟값, 최댓값 지정
+people_range_min=50; people_range_max=500;
+## 상수값 지정 종료
+
+
 ## 함수 선언
-# A~F 식당의 메뉴별 count dict를 생성하는 함수
+# A~F식당의 메뉴 갯수와 가격을 랜덤하게 생성하는 함수
+def make_menu(restaurant_name):	
+    for i in range(random.randrange(menu_count_range_min,menu_count_range_max+1)):
+        menu = tuple((restaurant_name+"_menu_"+str(i+1),random.randrange(menu_price_range_min,menu_price_range_max+1)) for i in range(i+1))
+    open_file.write(str(menu)+"\n") # 생성된 식당의 메뉴와 가격을 menu.txt에 저장
+    return menu
+
+# A~F 식당의 메뉴별 Count dict를 생성하는 함수
 def menu_count_setup(restaurant,menu):
     for i in range(len(restaurant)):
         menu[restaurant[i][0]] = 0
@@ -28,26 +54,20 @@ def choice_table_func(table_range):
     return choice_table
 ## 함수 선언 종료
 
+
 ## 전역변수 초기화
 # A~F까지의 식당을 랜덤으로 선택하기 위한 범위 지정
 restaurants_range=['A','B','C','D','E','F']
 
 # A~F까지 6개의 식당 메뉴를 튜플로 초기화
-open_file = open("/Users/junja/Desktop/python/Restaurant/menu.txt")	
-A_restaurant = eval(open_file.readline())
-B_restaurant = eval(open_file.readline())
-C_restaurant = eval(open_file.readline())
-D_restaurant = eval(open_file.readline())
-E_restaurant = eval(open_file.readline())
-F_restaurant = eval(open_file.readline())
+open_file = open("/Users/junja/Desktop/python/Restaurant2/menu.txt", "w")	
+A_restaurant=make_menu("A")
+B_restaurant=make_menu("B")
+C_restaurant=make_menu("C")
+D_restaurant=make_menu("D")
+E_restaurant=make_menu("E")
+F_restaurant=make_menu("F")
 open_file.close()
-
-
-# 테이블 갯수를 지정
-tables_range=30
-
-# 방문객 최솟값, 최댓값 지정
-people_range_min=50; people_range_max=500;
 
 # 식당 이용 횟수(restaurants dict) 6개 생성, 값은 0으로 초기화.
 restaurants_count={"A_restaurant":0, "B_restaurant":0, "C_restaurant":0, "D_restaurant":0, "E_restaurant":0, "F_restaurant":0 }
@@ -62,37 +82,3 @@ for i in (restaurants_range):
 # 테이블 사용 횟수(tables List) 30개 생성, 값은 0으로 초기화.
 tables_count=[0 for i in range(tables_range)]
 ## 전역변수 초기화 종료
-
-## 메인 코드 시작
-people_count=random.randrange(people_range_min,people_range_max+1)
-print("1일차 방문객: %d" % people_count)
-
-for i in range(people_count):
-    print("%d 번째 손님이 입장했습니다." %(i+1))
-
-    # 식당 정하기
-    choice_restaurant=choice_restaurant_func(restaurants_range)
-    print("선택한 식당: %s" % choice_restaurant)
-
-    # 메뉴 정하기
-    choice_menu=choice_menu_func(choice_restaurant)
-    print("선택한 메뉴: %s" % choice_menu)
-
-    # 테이블 정하기
-    choice_table=choice_table_func(tables_range)
-    print("선택한 테이블 %d" % choice_table)
-
-    print()
-
-
-
-print("식당별 주문 횟수 %s" % restaurants_count)
-print("A식당 메뉴별 주문 횟수 %s" % A_menu_count)
-print("B식당 메뉴별 주문 횟수 %s" % B_menu_count)
-print("C식당 메뉴별 주문 횟수 %s" % C_menu_count)
-print("D식당 메뉴별 주문 횟수 %s" % D_menu_count)
-print("E식당 메뉴별 주문 횟수 %s" % E_menu_count)
-print("F식당 메뉴별 주문 횟수 %s" % F_menu_count)
-print("테이블별 사용 횟수 %s" % tables_count)
-print(sum(tables_count))
-## 메인 코드 종료
