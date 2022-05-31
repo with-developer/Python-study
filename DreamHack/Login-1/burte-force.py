@@ -21,3 +21,4 @@ if __name__ == "__main__":
 
     print("Attack Finish")
     print("New Password: 1234")
+    
