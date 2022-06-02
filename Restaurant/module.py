@@ -27,7 +27,7 @@ path="/Users/junja/Desktop/python/Restaurant/menu.txt"
 def make_menu(restaurant_name):	
     for i in range(random.randrange(menu_count_range_min,menu_count_range_max+1)):
         menu = tuple((restaurant_name+"_menu_"+str(i+1),random.randrange(menu_price_range_min,menu_price_range_max+1)) for i in range(i+1))
-    open_file.write(str(menu)+"\n") # 생성된 식당의 메뉴와 가격을 menu.txt에 저장
+    open_file.write(restaurant_name+"_restaurant: "+str(menu)+"\n") # 생성된 식당의 메뉴와 가격을 menu.txt에 저장
     return menu
 
 # A~F 식당의 메뉴별 Count dict를 생성하는 함수
