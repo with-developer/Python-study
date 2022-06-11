@@ -1,0 +1,6 @@
+A_restaurant: (('A_menu_1', 7371), ('A_menu_2', 8487), ('A_menu_3', 3895), ('A_menu_4', 4503), ('A_menu_5', 8333), ('A_menu_6', 4613), ('A_menu_7', 3004))
+B_restaurant: (('B_menu_1', 6817), ('B_menu_2', 1674), ('B_menu_3', 4763), ('B_menu_4', 4111), ('B_menu_5', 4128), ('B_menu_6', 6267), ('B_menu_7', 1425), ('B_menu_8', 7715), ('B_menu_9', 8578))
+C_restaurant: (('C_menu_1', 5709), ('C_menu_2', 8161), ('C_menu_3', 6173), ('C_menu_4', 9309), ('C_menu_5', 8604), ('C_menu_6', 5561))
+D_restaurant: (('D_menu_1', 3176), ('D_menu_2', 1166), ('D_menu_3', 9477), ('D_menu_4', 4161))
+E_restaurant: (('E_menu_1', 6891), ('E_menu_2', 4034), ('E_menu_3', 8037), ('E_menu_4', 8988), ('E_menu_5', 5128), ('E_menu_6', 7818), ('E_menu_7', 4555), ('E_menu_8', 5372), ('E_menu_9', 2020))
+F_restaurant: (('F_menu_1', 5248), ('F_menu_2', 7991), ('F_menu_3', 3639), ('F_menu_4', 5082), ('F_menu_5', 3815), ('F_menu_6', 2769), ('F_menu_7', 5093), ('F_menu_8', 4251), ('F_menu_9', 8947), ('F_menu_10', 2764))
