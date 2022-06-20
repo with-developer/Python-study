@@ -13,3 +13,5 @@ for i in range (0, 100) :
     random_num = random.randrange(0, 1000)
     if min_num > random_num :
         min_num = random_num
+
+#test
