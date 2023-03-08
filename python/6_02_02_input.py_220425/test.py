@@ -1,17 +1,7 @@
-import random
+import numpy as np
 
-max_num = -1
-for i in range (0, 100) :
-    random_num = random.randrange(0, 1000)
-    if random_num > max_num :
-        max_num = random_num
+x = np.array([[1,  2,  3,  4],
+              [5,  6,  7,  8],
+              [9, 10, 11, 12]])
 
-print("가장 큰 수는 : ", max_num)
-
-min_num = 1000
-for i in range (0, 100) :
-    random_num = random.randrange(0, 1000)
-    if min_num > random_num :
-        min_num = random_num
-
-#tsst 12
+print(x[2, 3])
