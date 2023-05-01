@@ -1,0 +1,6 @@
+from xml.etree.ElementTree import parse
+
+tree = parse('data.txt')
+root = tree.getroot()
+
+print(root)
